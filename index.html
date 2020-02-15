@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tezos Timestamp Demo</title>
+  <script src="https://cdn.jsdelivr.net/gh/cryptonomic/conseiljs/dist-web/conseiljs.min.js"
+        integrity="sha384-1Lpjkva0cskGzGmrvU+WIbzNk24LwcaEFgsukzbI5wTl7T6kom1UA4DKS/oxtaqr"
+        crossorigin="anonymous"></script>
+</head>
+<body>
+  <h1>Tezos Timestamp Demo</h1>
+  <h3>Step 1. Deploy a contract with initial string</h3>
+  <input type="text" id="input-string" placeholder="Enter SHA256 Hash" />
+  <button onclick="deployContract();">Deploy Contract</button>
+  <hr>
+  <h3>Step 2. Invoke contract with new strings</h3>
+  <input type="text" id="contract-address" placeholder="Enter Contract Address" />
+  <button onclick="invokeContract();">Invoke Contract</button>
+  <script type="text/javascript" src="js/app.js"></script>
+  <h5>Results</h5>
+  <div id="results"></div>
+</body>
+</html>

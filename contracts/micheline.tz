@@ -1,0 +1,122 @@
+[
+  {
+    "prim": "parameter",
+    "args": [
+      {
+        "prim": "or",
+        "args": [
+          {
+            "prim": "string",
+            "annots": [
+              "%getHash"
+            ]
+          },
+          {
+            "prim": "string",
+            "annots": [
+              "%setHash"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "prim": "storage",
+    "args": [
+      {
+        "prim": "string"
+      }
+    ]
+  },
+  {
+    "prim": "code",
+    "args": [
+      [
+        {
+          "prim": "DUP"
+        },
+        {
+          "prim": "DUP"
+        },
+        {
+          "prim": "CAR"
+        },
+        {
+          "prim": "IF_LEFT",
+          "args": [
+            [
+              {
+                "prim": "DIP",
+                "args": [
+                  [
+                    {
+                      "prim": "DUP"
+                    }
+                  ]
+                ]
+              },
+              {
+                "prim": "SWAP"
+              },
+              {
+                "prim": "CDR"
+              },
+              {
+                "prim": "DIP",
+                "args": [
+                  [
+                    {
+                      "prim": "DROP"
+                    }
+                  ]
+                ]
+              }
+            ],
+            [
+              {
+                "prim": "DUP"
+              },
+              {
+                "prim": "DIP",
+                "args": [
+                  [
+                    {
+                      "prim": "DROP"
+                    }
+                  ]
+                ]
+              }
+            ]
+          ]
+        },
+        {
+          "prim": "NIL",
+          "args": [
+            {
+              "prim": "operation"
+            }
+          ]
+        },
+        {
+          "prim": "PAIR"
+        },
+        {
+          "prim": "DIP",
+          "args": [
+            [
+              {
+                "prim": "DROP",
+                "args": [
+                  {
+                    "int": "2"
+                  }
+                ]
+              }
+            ]
+          ]
+        }
+      ]
+    ]
+  }
+]

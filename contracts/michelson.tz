@@ -1,0 +1,12 @@
+{ parameter (or (string %getHash) (string %setHash)) ;
+  storage string ;
+  code { DUP ;
+         DUP ;
+         CAR ;
+         IF_LEFT
+           { DIP { DUP } ; SWAP ; CDR ; DIP { DROP } }
+           { DUP ; DIP { DROP } } ;
+         NIL operation ;
+         PAIR ;
+         DIP { DROP 2 } } }
+
