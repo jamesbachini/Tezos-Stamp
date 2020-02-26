@@ -4,21 +4,108 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tezos Timestamp Demo</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script></head>
   <script src="https://cdn.jsdelivr.net/gh/cryptonomic/conseiljs/dist-web/conseiljs.min.js"
         integrity="sha384-1Lpjkva0cskGzGmrvU+WIbzNk24LwcaEFgsukzbI5wTl7T6kom1UA4DKS/oxtaqr"
         crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,700&display=swap" rel="stylesheet">
+  <link href="css/style.css?v=3" rel="stylesheet">
+  <link rel="shortcut icon" href="img/tezos-stamp.svg">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
 </head>
 <body>
-  <h1>Tezos Timestamp Demo</h1>
-  <h3>Step 1. Deploy a contract with initial string</h3>
-  <input type="text" id="input-string" placeholder="Enter SHA256 Hash" />
-  <button onclick="deployContract();">Deploy Contract</button>
-  <hr>
-  <h3>Step 2. Invoke contract with new strings</h3>
-  <input type="text" id="contract-address" placeholder="Enter Contract Address" />
-  <button onclick="invokeContract();">Invoke Contract</button>
+  <div class="top-bar">
+    <div class="container">
+      <a href="javascript:void(0);" onclick="pageLoad('home');">
+        <img src="img/tezos-stamp.svg" class="logo-icon" />
+        <div class="logo-text">TEZOS STAMP</div>
+      </a>
+      <img src="img/burger.svg" id="burger" onclick="toggleMenu();" />
+      <nav id="menu" class="menu">
+        <img src="img/close.svg" id="menu-close" onclick="toggleMenu();" />
+        <ul>
+          <li><a href="javascript:void(0);" onclick="pageLoad('home');">Home</a></li>
+          <li><a href="javascript:void(0);" onclick="pageLoad('credentials');">Credentials</a></li>
+          <li><a href="javascript:void(0);" onclick="pageLoad('deploy');">Deploy</a></li>
+          <li><a href="javascript:void(0);" onclick="pageLoad('stamp');">Stamp</a></li>
+        </ul>
+      </nav>
+      <div class="clear"></div>
+    </div>
+  </div>
+  <div class="main">
+    <div class="container">
+      <div id="home">
+        <h2>TEZOS STAMP DAPP</h2>
+        <h3>A decentralized application for timestamping documents with Tezos</h3>
+        <h4>How It Works</h4>
+        <img src="img/how-it-works.png" class="responsive-image howitworks" />
+        <h4>Instructions</h4>
+        <ol class="instructions">
+          <li>Setup Or Generate Your <a href="javascript:void(0);" onclick="pageLoad('credentials');">Credentials</a></li>
+          <li><a href="javascript:void(0);" onclick="pageLoad('deploy');">Deploy</a> A Smart Contract</li>
+          <li><a href="javascript:void(0);" onclick="pageLoad('stamp');">Stamp</a> Your Files Using Drag &amp; Drop Interface</li>
+        </ol>
+        <p class="blue">Tezos Stamp provides decentralized immutable proof of documents accuracy at a given point in time.</p>
+        <p>
+          It is compatible with:
+          <ul>
+            <li>PDF Documents</li>
+            <li>Images</li>
+            <li>Videos</li>
+            <li>MP3/FLAC Audio</li>
+            <li>HTML Web Pages</li>
+            <li>Zip Files</li>
+          </ul>
+
+        </p>
+      </div>
+      <div id="credentials">
+        <h2>CREDENTIALS</h2>
+        <h3>Setup Your Credentials For Tezos</h3>
+        <p>Please generate an account here: <a href="https://faucet.tzalpha.net/" target="_blank">Tezos Faucet</a></p>
+        <p>Enter the credentials JSON code below and click save</p>
+        <div id="credentials-input" contenteditable="true"></div>
+        <div class="btn-container">
+          <button class="btn" onclick="saveCredentials();">Save New Credentials</button>
+          <button class="btn" onclick="importCredentials();">Import Test Credentials</button>
+        </div>
+        <div id="credentials-results" class="results"></div>
+        <p>You can either use the test credentials or setup your own credentials using the free Tezos testnet faucet. Saved credentials will be initiated.</p>
+      </div>
+      <div id="deploy">
+        <h2>DEPLOY</h2>
+        <h3>Deploy Tezos Smart Contract</h3>
+        <p>Click the button below to deploy a new smart contract to the Tezos blockchain</p>
+        <button class="btn" onclick="deployContract();">Deploy Contract</button>
+        <div id="deploy-results" class="results"></div>
+      </div>
+      <div id="stamp">
+        <h2>STAMP</h2>
+        <h3>TIMESTAMP FILE</h3>
+        <h3>Drop a file to hash, timestamp and record on Tezos blockchain</h3>
+        <script>
+          const upload = true;
+        </script>
+        <div id="drop-area">
+          <form class="my-form">
+            <p>Drop a file here to calculate the SHA256 Hash</p>
+            <input type="file" id="files" name="file" onchange="handleUpload(this.files);" />
+          </form>
+        </div>
+        <div class="tool-info">
+          Please note large files may take some time to process
+        </div>
+        <div id="crypto-sha256"></div>
+        <div id="stamp-results" class="results"></div>
+        <div id="loading">
+          <svg class="loading-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="45"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
   <script type="text/javascript" src="js/app.js"></script>
-  <h5>Results</h5>
-  <div id="results"></div>
 </body>
 </html>

@@ -1,0 +1,314 @@
+body, html {
+	border: 0;
+	margin: 0;
+	width: 100%;
+	font-family: 'Raleway', sans-serif;
+	letter-spacing: 1px;
+	font-weight: 300;
+	font-size: 16px;
+	background: #212229;
+	color: #F7F7F7;
+}
+
+h1, h2, h3, h4, h5 {
+	letter-spacing: 2px;
+	font-weight: 700;
+}
+
+h2,h4 {
+	color: #2c7df7;
+}
+
+hr {
+	color: #212229;
+}
+
+a, a:visited, a:active, a:hover {
+	color: #2c7df7;
+}
+
+.container {
+	max-width: 800px;
+	margin: 0px auto;
+}
+
+.spacer {
+	margin: 10px;
+}
+
+.btn-container {
+	margin: 10px auto;
+}
+
+.btn {
+	color: #FFF;
+	background: #2c7df7;
+	border-radius: 5px;
+	padding: 5px 30px;
+	border: none;
+	cursor: pointer;
+}
+
+.clear {
+	clear: both;
+}
+
+.pull-left {
+	float: left;
+}
+
+.pull-right {
+	float: right;
+}
+
+table.td, table.th {
+	padding: 5px;
+}
+
+table thead {
+	background: #3b4856;
+	color: #FFF;
+}
+
+table thead th {
+	padding: 5px;
+	font-weight: 400;
+}
+
+table tr:nth-child(even) {
+  background: #F7F7F7;
+}
+
+.top-bar {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	height: 40px;
+	line-height: 40px;
+	width: 100%;
+	color: #EEE;
+	background: #2c7df7;
+	margin: 0px;
+}
+
+.main {
+	margin-top: 50px;
+}
+
+.logo-icon {
+	height: 30px;
+	margin: 5px;
+	float: left;
+}
+
+.logo-text {
+	font-weight: 300;
+	letter-spacing: 4px;
+	font-size: 26px;
+	color: #FFF;
+	float: left;
+	margin-left: 10px;
+}
+
+.content {
+	margin-top: 60px; /* push down from top menu */
+}
+
+.menu {
+	float: right;
+	height: 40px;
+	line-height: 40px;
+}
+
+.menu ul {
+	margin: 0px;
+	margin-block-start: 0px;
+  margin-block-end: 0px;
+	padding-inline-start: 0px;
+}
+
+.menu ul li {
+	display: inline-block;
+	text-decoration: none;
+	margin-left: 10px;
+	font-size: 14px;
+}
+
+.menu ul li a, .menu ul li a:hover, .menu ul li a:active {
+	text-decoration: none;
+	color: #DDD;
+}
+
+.menu ul li a:hover {
+	color: #FFF;
+}
+
+
+#burger {
+	height: 20px;
+	filter: invert(100%);
+	float: right;
+	cursor: pointer;
+	margin: 10px 10px 0px 10px;
+	display: none;
+}
+
+#menu-close {
+	height: 20px;
+	filter: invert(100%);
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	cursor: pointer;
+	display: none;
+	padding: 10px 15px;
+	background: #DEDDD6;
+}
+
+.footer {
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	width: 100%;
+	height: 20px;
+	line-height: 20px;
+	background: #212229;
+	font-size: 11px;
+	color: #EEE;
+	text-align: right;
+}
+
+.responsive-image {
+	max-width: 100%;
+}
+
+.howitworks {
+	width: 400px;
+	margin: 10px auto;
+}
+
+.copyright {
+	margin-right: 20px;
+}
+
+.results {
+	color: #4F4;
+}
+
+#credentials-input {
+	min-height: 100px;
+	width: 80%;
+	background: #EEE;
+	border-radius: 5px;
+	padding: 5px;
+}
+
+#credentials {
+	display: none;
+}
+
+#deploy {
+	display: none;
+}
+
+#stamp {
+	display: none;
+}
+
+.warning {
+	color: #F60;
+}
+
+.white {
+	color: white;
+}
+
+.blue {
+	color: #2c7df7;
+}
+
+.center {
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#drop-area {
+	border: 3px dashed #ccc;
+	border-radius: 20px;
+	margin: 10px 0px;
+	padding: 20px;
+	text-align: center;
+}
+
+.file-name {
+	color: #2c7df7;
+	font-size: 22px;
+}
+
+#loading {
+	display: none;
+	position: absolute;
+	top: 40%;
+	left: 40%;
+}
+
+.loading-svg {
+  animation: 2s linear infinite svg-animation;
+  max-width: 100px;
+}
+
+.instructions {
+	line-height: 2;
+}
+
+@keyframes svg-animation {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg)
+  }
+}
+
+@media only screen and (max-width: 720px) {
+	#burger {
+		display: block;
+	}
+
+	#menu-close {
+		display: block;
+	}
+
+	#menu {
+		display: none;
+		float: none;
+		position: fixed;
+		top: 40px;
+		left: 0px;
+		width: 100%;
+		height: 100%;
+		background: #212229;
+	}
+
+	.menu ul li {
+		display: block;
+		text-decoration: none;
+		margin: 10px;
+		padding: 10px;
+		font-size: 14px;
+		border-bottom: 1px solid #3b4856;
+		font-size: 20px;
+		text-align: center;
+	}
+
+	.menu ul li a, .menu ul li a:hover, .menu ul li a:active {
+		text-decoration: none;
+		color: #DDD;
+	}
+
+	.menu ul li a:hover {
+		color: #FFF;
+	}
+
+}
